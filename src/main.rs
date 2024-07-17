@@ -40,11 +40,19 @@ impl Solution {
     }
 }
 
+// fn main() {
+//     let stdin = std::io::stdin();
+//     println!("{}", stdin.lock().lines().count());
+// }
+
 fn main() {
-    println!("Hello, world!");
+    let id = "Iterator";
+    let mut chars = id.chars();
 
-    // unwrap 方法会自动解引用到option的值
-    let a = &&&&&&Some(5);
+    // 使用 `any` 检查是否有大写字母
+    assert!(chars.by_ref().any(char::is_uppercase));
 
-    let _b = a.unwrap();
+    // 现在再次使用迭代器
+    let remaining_chars: String = chars.collect();
+    println!("Remaining characters: {}", remaining_chars);
 }
